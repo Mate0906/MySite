@@ -17,7 +17,7 @@
 
     <div style="height: 100vh;" class="container d-flex justify-content-center align-items-center">
         <div class="row justify-content-center w-100">
-            <div id="loginBox" class="col-10 col-sm-8 col-md-8 col-lg-4 pt-5 pb-5 ps-4 pe-4 rounded shadow text-center bg-white">
+            <div id="loginBox" class="col-10 col-sm-8 col-md-8 col-lg-4 pt-5 pb-5 ps-4 pe-4 shadow text-center bg-white">
                 <h2 id="logintext" class="mb-4">Log in</h2>
                 <form id="loginForm">
                     <input class="loginForms form-control mb-3" type="email" name="email" placeholder="E-mail" required>
@@ -25,6 +25,10 @@
                     <button id="loginButton" class="btn btn-primary w-100" type="submit">Log in</button>
                 </form>
                 <p class="mt-4 elseText">Don't have an account yet? <a href="register.html">Register</a></p>
+                <hr>
+                <a style="text-decoration: none; color: black; font-weight: 500;" href="index.html">
+                    <p id="noSignIn"><i class="fa-solid fa-arrow-left me-2"></i>Continue without login</p>
+                </a>
             </div>
         </div>
     </div>

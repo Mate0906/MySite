@@ -7,6 +7,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
+nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 .wrapper {
     position: fixed;
     top: 0;
@@ -16,7 +21,7 @@
     background: linear-gradient(-135deg, #9A3B84 , #0D7377);
     /* clip-path: circle(25px at calc(0% + 45px) 45px); */
     clip-path: circle(25px at calc(100% - 45px) 45px);
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
     z-index: 1;
 }
 
@@ -24,7 +29,7 @@
     clip-path: circle(75%);
 }
 
-.menu-btn {
+.menu-btn, .login-btn {
     position: fixed;
     z-index: 2;
     right: 20px;
@@ -41,6 +46,17 @@
     background: linear-gradient(-135deg, #9A3B84 , #0D7377);
     /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
     transition: all 0.3s ease-in-out;
+    border: none;
+    cursor: pointer;
+}
+
+.login-btn {
+    right: 80px;
+    background: none;
+}
+
+.login-btn:hover {
+    color: #8294f0;
 }
 
 #active:checked~.menu-btn {
@@ -169,11 +185,7 @@ h1 {
     -webkit-background-clip: text;
     background-clip: text;
     font-size: 20px;
-    transition: all ease-in-out 0.3s;
-}
-#jumpbutton:hover{
-    font-size: 23px;
-    transition: all ease-in-out 0.3s;
+    transition: all ease-in-out 1s;
 }
 
 main{
@@ -231,7 +243,7 @@ footer ul{
 #loginBox {
     height: 50vh;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 #logintext {
     text-align: center;
@@ -282,4 +294,9 @@ footer ul{
 .loginForms:focus{
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+    background-color: rgb(230, 230, 230);
+}
+
+#noSignIn{
+    font-size: 13px;
 }
