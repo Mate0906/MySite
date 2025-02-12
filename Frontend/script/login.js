@@ -1,34 +1,28 @@
-// Get the login form elements
-const loginForm = document.getElementById("loginForm");
-const emailInput = document.getElementById("email");
-const passwordInput = document.getElementById("password");
+document.getElementById("loginForm").addEventListener("submit", async function (event) {
+    event.preventDefault(); // Megakadályozza az alapértelmezett form elküldést
 
-// Handle form submission
-loginForm.addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent form submission from reloading the page
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-    const email = emailInput.value;
-    const password = passwordInput.value;
+    try {
+        const response = await fetch("http://localhost:3000/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
+        });
 
-    // Send the login data to the server
-    fetch("http://localhost:3000/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            email: email,
-            password: password
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.message === "Login successful!") {
-            // If login is successful, redirect to the main page
-            window.location.href = "index.html"; // Change to your main page if needed
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("Sikeres bejelentkezés!");
+            window.location.href = "index.html"; // Átirányítás a főoldalra
         } else {
-            alert("Invalid email or password");
+            alert(data.message || "Hibás bejelentkezési adatok!");
         }
-    })
-    .catch(error => console.error("Error:", error));
+    } catch (error) {
+        console.error("Hálózati hiba:", error);
+        alert("Hálózati hiba történt!");
+    }
 });

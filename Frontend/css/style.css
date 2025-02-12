@@ -21,7 +21,7 @@ nav {
     background: linear-gradient(-135deg, #9A3B84 , #0D7377);
     /* clip-path: circle(25px at calc(0% + 45px) 45px); */
     clip-path: circle(25px at calc(100% - 45px) 45px);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
     z-index: 1;
 }
 
@@ -103,7 +103,7 @@ nav {
     border-radius: 50px;
     transform: scaleY(0);
     z-index: -1;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .wrapper ul li a:hover:after {

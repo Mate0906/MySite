@@ -13,16 +13,24 @@
     <title>Register</title>
 </head>
 
-<body>
-    <h2>Register</h2>
-    <form id="registerForm">
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Jelszó" required>
-        <input type="password" name="confirmPassword" placeholder="Jelszó megerősítése" required>
-        <button type="submit">I'm done, register</button>
-    </form>
-    <p>Already have an account? <a href="login.html">Log in!</a></p>
-    <script src="register.js"></script>
+<body id="loginPage">
+
+    <div style="height: 100vh;" class="container d-flex justify-content-center align-items-center">
+        <div class="row justify-content-center w-100">
+            <div id="loginBox"
+                class="col-10 col-sm-8 col-md-8 col-lg-4 pt-5 pb-5 ps-4 pe-4 shadow text-center bg-white">
+                <h2 id="logintext" class="mb-4">Register</h2>
+                <form id="registerForm">
+                    <input class="loginForms form-control mb-3" type="email" name="email" placeholder="Email" required>
+                    <input class="loginForms form-control mb-3" type="password" name="password" placeholder="Password" required>
+                    <input class="loginForms form-control mb-3" type="password" name="confirmPassword" placeholder="Confirm password" required>
+                    <button class="btn btn-primary w-100" id="loginButton" type="submit">I'm done, register</button>
+                </form>
+                <p class="mt-4 elseText">Already having an account? <a href="login.html">Log in</a></p>
+            </div>
+        </div>
+    </div>
+
 
 
 
