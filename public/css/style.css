@@ -29,7 +29,7 @@ nav {
     clip-path: circle(75%);
 }
 
-.menu-btn, .login-btn {
+.menu-btn, .login-btn, .profile-btn {
     position: fixed;
     z-index: 2;
     right: 20px;
@@ -50,14 +50,16 @@ nav {
     cursor: pointer;
 }
 
-.login-btn {
+.login-btn, .profile-btn {
     right: 80px;
     background: none;
 }
 
-.login-btn:hover {
+.login-btn:hover, .profile-btn:hover {
     color: #8294f0;
 }
+
+
 
 #active:checked~.menu-btn {
     background: #fff;
@@ -230,6 +232,21 @@ footer ul{
 }
 
 
+
+#user-menu {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    max-width: 400px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 6;
+}
 
 /* login page */
 #loginPage{

@@ -1,8 +1,10 @@
-// filepath: /src/app.js
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const db = require('./db');
+const session = require('express-session');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -10,26 +12,27 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.post('/register', (req, res) => {
-    const { email, password } = req.body;
-    const query = 'INSERT INTO users (email, password) VALUES (?, ?)';
-    db.query(query, [email, password], (err, result) => {
-        if (err) throw err;
-        res.redirect('/login.html');
-    });
+app.use(session({
+    secret: 'your_secret_key',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // secure: true csak HTTPS esetén
+}));
+
+const authRoutes = require('./routes/authRoutes');
+
+app.use('/auth', authRoutes);
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-app.post('/login', (req, res) => {
-    const { email, password } = req.body;
-    const query = 'SELECT * FROM users WHERE email = ? AND password = ?';
-    db.query(query, [email, password], (err, results) => {
-        if (err) throw err;
-        if (results.length > 0) {
-            res.redirect('/');
-        } else {
-            res.redirect('/login.html');
-        }
-    });
+app.get('/user', (req, res) => {
+    if (req.session.user) {
+        res.json({ loggedIn: true });
+    } else {
+        res.json({ loggedIn: false });
+    }
 });
 
 app.listen(port, () => {
