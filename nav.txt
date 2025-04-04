@@ -1,0 +1,134 @@
+<input type="checkbox" id="active">
+        <label for="active" class="menu-btn"><i class="fa-solid fa-bars"></i></label>
+        <a href="login.html" title="Log in" class="login-btn"><i
+                class="fa-solid fa-arrow-right-to-bracket"></i></a>
+        <button class="profile-btn d-flex justify-content-center align-items-center"
+            onclick="toggleMenu()"><i style="font-size: 22px;" class="fa-regular fa-circle-user"></i></button>
+        <div id="user-menu" style="display: none;">
+            <div id="menu" style="display: none;">
+                <a href="/auth/logout">Logout</a>
+            </div>
+        </div>
+        <div class="wrapper">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Gallery</a></li>
+            </ul>
+        </div>
+
+
+
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(-135deg, #9A3B84 , #0D7377);
+    /* clip-path: circle(25px at calc(0% + 45px) 45px); */
+    clip-path: circle(25px at calc(100% - 45px) 45px);
+    transition: all 0.2s ease-in-out;
+    z-index: 1;
+}
+
+#active:checked~.wrapper {
+    clip-path: circle(75%);
+}
+
+.menu-btn, .login-btn, .profile-btn {
+    position: fixed;
+    z-index: 2;
+    right: 20px;
+    /* left: 20px; */
+    top: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    background: linear-gradient(-135deg, #9A3B84 , #0D7377);
+    /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
+    transition: all 0.3s ease-in-out;
+    border: none;
+    cursor: pointer;
+}
+
+.login-btn, .profile-btn {
+    right: 80px;
+    background: none;
+}
+
+.login-btn:hover, .profile-btn:hover {
+    color: #8294f0;
+}
+
+
+
+#active:checked~.menu-btn {
+    background: #fff;
+    color: #4158d0;
+}
+
+#active:checked~.menu-btn i:before {
+    content: "\f00d";
+}
+
+.wrapper ul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+}
+
+.wrapper ul li {
+    margin: 15px 0;
+}
+
+.wrapper ul li a {
+    color: none;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 500;
+    padding: 5px 30px;
+    color: #fff;
+    position: relative;
+    line-height: 50px;
+    transition: all 0.3s ease;
+}
+
+.wrapper ul li a:after {
+    position: absolute;
+    content: "";
+    background: #fff;
+    width: 100%;
+    height: 50px;
+    left: 0;
+    border-radius: 50px;
+    transform: scaleY(0);
+    z-index: -1;
+    transition: transform 0.2s ease;
+}
+
+.wrapper ul li a:hover:after {
+    transform: scaleY(1);
+}
+
+.wrapper ul li a:hover {
+    color: #038298;
+}
+
+input[type="checkbox"] {
+    display: none;
+}

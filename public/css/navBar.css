@@ -1,0 +1,130 @@
+body {
+    transition: overflow 0.3s ease;
+}
+
+.navbar {
+    background-color: transparent;
+    color: white;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+    transition: all ease-in-out 0.2s;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar-left {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-button,
+.login-btn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-button:hover {
+    color: #6a8fa1;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-menu .nav-button,
+.side-menu .login-btn {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.side-menu .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+#login-btn {
+    background-color: #6a8fa1;
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: small;
+    text-decoration: none;
+}
+
+.navbar.scrolled {
+    background-color: rgba(51, 51, 51,0.8);
+    transition: all ease-in-out 0.2s;
+}
+
+@media (max-width: 768px) {
+    .navbar-left {
+        display: none;
+    }
+
+    .navbar-right {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .navbar {
+        padding: 20px 0;
+    }
+
+    .navbar.hidden {
+        transform: translateY(-100%);
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+}
